@@ -7,13 +7,13 @@ import homeStyles from "@/styles/Home.module.css";
 import { getSortedPostsData } from "@/lib/posts";
 
 const Home = ({
-  allPostsData,
+  allPostsData
 }: {
   allPostsData: {
-    date: string;
-    title: string;
-    id: string;
-  }[];
+    date: string
+    title: string
+    id: string
+  }[]
 }) => {
   return (
     <div>
