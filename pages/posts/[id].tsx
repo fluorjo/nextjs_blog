@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import Head from "next/head";
 import homeStyles from "@/styles/Home.module.css";
-
+import postStyle from "../../styles/Post.module.css";
 const Post = ({
   postData,
 }: {
@@ -14,7 +14,7 @@ const Post = ({
   };
 }) => {
   return (
-    <div>
+    <div className={postStyle.container}>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -29,13 +29,13 @@ const Post = ({
 
 export default Post;
 
-export const getStaticPaths : GetStaticPaths= async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
   };
-}
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostsData(params!.id as string);
