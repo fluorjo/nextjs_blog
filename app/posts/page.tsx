@@ -2,7 +2,11 @@ import Link from 'next/link'
 import React from 'react'
 
 async function getPost() {
-  const res = await fetch('http://127.0.0.1:8090/api/collections/posts/records')
+  const res = await fetch(
+    'http://127.0.0.1:8090/api/collections/posts/records',
+    //요청할 때마다 새로운 데이터 가져오게 한다.
+    { cache: 'no-store' },
+  )
   const data = await res.json()
   return data?.items as any[]
 }
